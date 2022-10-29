@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Yeon+Sung&display=swap");
+
+body {
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Nanum Pen Script";
+  /*vh : viewfalut height의 줄임말. 현재 웹스크린의 실제 크기의 100퍼센트를 최소 높이로 갖겠다.*/
+  min-height: 100vh;
+  margin: 0px;
+}
+
+/* min-width : {}안에 있는 모든 css 규칙들은 min-width이상일 때만 적용됨
+반응형 웹을 적용할 때 사용됨
+화면이 650px이상으로 넓을 때 적용되는 규칙들*/
+@media (min-width: 650px) {
+  .App {
+    width: 650px;
+  }
+}
+/*웹브라우저 화면이 650px 이하 일때, 화면의 90%를 차지하게 하겠다*/
+@media (max-width: 650px) {
+  .App {
+    width: 90vh;
+  }
+}
+
+#root {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.App {
+  /*기본적으로 화면의 100퍼센트를 차지하게 됨*/
+  min-height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* MyButton */
+.MyButton {
+  cursor: pointer;
+  border: none;
+  /* 버튼 모서리를 둥글게 만들기 */
+  border-radius: 5px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  font-size: 18px;
+  /* 버튼안에 글자가 잘려서 두줄이 되지 않게 하는 것 */
+  white-space: nowrap;
+
+  font-family: "Nanum Pen Script";
+}
+
+.MyButton_default {
+  background-color: #ececec;
+  color: black;
+}
+
+.MyButton_positive {
+  background-color: #64c964;
+  color: white;
+}
+
+.MyButton_negative {
+  background-color: #fd562f;
+  color: white;
+}
+
+/* HEADER */
+header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* 원래는 div태그는 세로로 나오는데 그것을 가로로 */
+  display: flex;
+  /* 세로축 중앙에 위치시키겠다 */
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+/* header의 바로 아래자식 */
+header > div {
+  display: flex;
+}
+
+header .head_text {
+  width: 50%;
+  font-size: 25px;
+  /* headtext의 클래스명을 가진 div는 축이 가로로 되고
+  justifty-content : center로 가로축의 중앙정렬로 중앙에 오게 됨 */
+  justify-content: center;
+}
+
+header .head_btn_left {
+  width: 25%;
+  justify-content: start;
+}
+
+header .head_btn_right {
+  width: 25%;
+  justify-content: end;
+}
+
+header button {
+  font-family: "Nanum Pen Script";
+}
