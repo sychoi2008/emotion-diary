@@ -41,7 +41,6 @@ const reducer = (state, action) => {
 //context를 만들어 datastate를 컴포넌트 전역에 전달 : data를 전달
 export const DiaryStateContext = React.createContext();
 //onCreate, onRemove, onEdit함수도 context로 전달
-export const DiaryDispatchContext = React.createContextContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, []);
