@@ -41,6 +41,7 @@ const reducer = (state, action) => {
 //context를 만들어 datastate를 컴포넌트 전역에 전달 : data를 전달
 export const DiaryStateContext = React.createContext();
 //onCreate, onRemove, onEdit함수도 context로 전달
+export const DiaryDispatchContext = React.createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, []);
@@ -77,16 +78,24 @@ function App() {
   };
   return (
     <DiaryStateContext.Provider value={data}>
-      <BrowserRouter>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/new" element={<New />} />
-            <Route path="/edit" element={<Edit />} />
-            <Route path="/diary/:id" element={<Diary />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
+      <DiaryDispatchContext.Provider
+        value={{
+          onCreate,
+          onEdit,
+          onRemove,
+        }}
+      >
+        <BrowserRouter>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/new" element={<New />} />
+              <Route path="/edit" element={<Edit />} />
+              <Route path="/diary/:id" element={<Diary />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </DiaryDispatchContext.Provider>
     </DiaryStateContext.Provider>
   );
 }
