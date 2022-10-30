@@ -43,8 +43,43 @@ export const DiaryStateContext = React.createContext();
 //onCreate, onRemove, onEdit함수도 context로 전달
 export const DiaryDispatchContext = React.createContext();
 
+//일기데이터 dummy data
+const dummyData = [
+  {
+    id: 1,
+    emotion: 1,
+    content: "오늘의 일기 1번",
+    date: 1667107369384,
+  },
+  {
+    id: 2,
+    emotion: 2,
+    content: "오늘의 일기 2번",
+    date: 1667107369385,
+  },
+  {
+    id: 3,
+    emotion: 3,
+    content: "오늘의 일기 3번",
+    date: 1667107369386,
+  },
+  {
+    id: 4,
+    emotion: 4,
+    content: "오늘의 일기 4번",
+    date: 1667107369387,
+  },
+  {
+    id: 5,
+    emotion: 5,
+    content: "오늘의 일기 5번",
+    date: 1667107369388,
+  },
+];
+
 function App() {
-  const [data, dispatch] = useReducer(reducer, []);
+  const [data, dispatch] = useReducer(reducer, dummyData);
+
   const dataId = useRef(0);
   //CREATE
   const onCreate = (date, content, emotion) => {
